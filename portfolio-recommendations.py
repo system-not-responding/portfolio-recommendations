@@ -1,5 +1,3 @@
-import pandas as pd
-
 portfolio_balance = input("\nWhat's your portfolio balance? $")
 portfolio_balance = float(portfolio_balance)
 print(f"Your portfolio's current balance is: ${portfolio_balance}")
