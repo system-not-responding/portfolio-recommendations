@@ -1,18 +1,18 @@
-portfolio_balance = input("\nWhat's your portfolio balance?\n>>> $")
-portfolio_balance = float(portfolio_balance)
+print("\n")
+portfolio_balance = float(input("Enter your portfolio balance: $"))
 
+three_month_rate = float(input("Enter the current three-month-rate: "))
+inflation_rate = float(input("Enter the current inflation rate: "))
+avg_benchmark_return = 10.20   # 20year average yearly return for sp500
 
-three_month_rate = float(input("What's the current three-month-rate?\n>>> "))
-avg_benchmark_return = 8
+risk_free_rate = (avg_benchmark_return - three_month_rate) / avg_benchmark_return
 
-recommended_percent = (avg_benchmark_return - three_month_rate) / 10
+cash_balance = portfolio_balance * (1 - risk_free_rate)
+cash_balance = round(cash_balance, 2)
+cash_pct = round((cash_balance / portfolio_balance) * 100, 2)
 
-cash_percent = portfolio_balance * recommended_percent
-cash_percent = portfolio_balance - cash_percent
-cash_percent = round(float(cash_percent), 2)
-print(f"\nRecommended cash balance is: ${cash_percent}")
+risk_balance = round(portfolio_balance - cash_balance, 2)
+risk_pct = round((risk_balance / portfolio_balance) * 100, 2)
 
-risk_percent = portfolio_balance - cash_percent
-print(f"Recommended risk balance is: ${risk_percent}\n")
-
-
+print(f"\nRecommended cash balance: ${cash_balance}/ {cash_pct}%")
+print(f"Recommended risk balance: ${risk_balance}/ {risk_pct}%\n")
